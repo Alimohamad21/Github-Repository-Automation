@@ -51,7 +51,7 @@ def cmd_update_rep():
     commit_name = input('Please enter a short description for your commit:')
     os.chdir(directory)
     os.system(
-        'cmd /c "git add .&git commit -m "{}"&git push -f origin main"'.format(
+        'cmd /c "git add .&git commit -m "{}"&git push origin main"'.format(
             commit_name))
 
 
