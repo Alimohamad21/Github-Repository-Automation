@@ -55,7 +55,7 @@ def cmd_update_rep():
             commit_name))
 
 
-choice = input('1-New Repository\n2-Exisiting Repository\nPlease choose an option form the above:')
+choice = input('1-New Repository\n2-Existing Repository\nPlease choose an option form the above:')
 root = tkinter.Tk()
 root.withdraw()
 directory = tkinter.filedialog.askdirectory()
