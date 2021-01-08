@@ -13,7 +13,7 @@ class Git:
         self.driver = None
         self.url = ""
 
-    def create_rep_in_git(self):
+    def log_into_git(self):
         self.driver = webdriver.Edge('/Users/Mohamed/Downloads/msedgedriver')
         data = json.load(open('D:\passwords.json'))
         password = data['github_password']
@@ -33,6 +33,7 @@ class Git:
                 break
             except:
                 pass
+    def create_rep_in_git(self):
         while True:
             try:
                 self.driver.find_element_by_xpath(
@@ -60,12 +61,14 @@ class Git:
         os.system(
             'cmd /c "git add .&git commit -m "{}"&git push origin main"'.format(
                 commit_name))
+        self.log_into_git()
         self.driver.maximize_window()
         self.driver.get(self.url)
 
     def new_repository(self):
         self.repository_name = input('Please enter a name for your repo:')
         self.repository_name = self.repository_name.replace(' ', '-')
+        self.log_into_git()
         self.create_rep_in_git()
         self.cmd_upload_to_rep()
         self.driver.maximize_window()
