@@ -31,7 +31,7 @@ class Git:
     def create_rep_in_git(self):
         while True:
             try:
-                self.driver.find_element_by_xpath('/html/body/div[4]/div/aside[1]/div[2]/div[1]/div/h2/a').click()
+                self.driver.find_element_by_xpath('/html/body/div[4]/div/aside[1]/div[2]/div[1]/div/h2/a').click() #test
                 break
             except:
                 pass
