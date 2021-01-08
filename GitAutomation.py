@@ -11,7 +11,7 @@ class Git:
         self.directory = ""
         self.repository_name = ""
         self.driver = None
-        self.url = ""
+        self.url = "https://github.com/Alimohamad21/"
 
     def log_into_git(self):
         self.driver = webdriver.Edge('/Users/Mohamed/Downloads/msedgedriver')
@@ -31,7 +31,8 @@ class Git:
     def create_rep_in_git(self):
         while True:
             try:
-                self.driver.find_element_by_xpath('/html/body/div[4]/div/aside[1]/div[2]/div[1]/div/h2/a').click() #test
+                self.driver.find_element_by_xpath(
+                    '/html/body/div[4]/div/aside[1]/div[2]/div[1]/div/h2/a').click()  # test
                 break
             except:
                 pass
