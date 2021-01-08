@@ -65,10 +65,14 @@ class Git:
         self.log_into_git()
         self.driver.maximize_window()
         self.driver.get('https://github.com/Alimohamad21?tab=repositories')
-        self.url = self.driver.find_element_by_xpath(
-            '/html/body/div[4]/main/div[2]/div/div[2]/div[2]/div/div[2]/ul/li[1]/div[1]/div[1]/h3/a').get_attribute(
-            'href')
-        self.driver.get(self.url)
+        while True:
+            try:
+                self.driver.find_element_by_xpath(
+                    '/html/body/div[4]/main/div[2]/div/div[2]/div[2]/div/div[2]/ul/li[1]/div[1]/div[1]/h3/a').get_attribute(
+                    'href').click()
+                break
+            except:
+                pass
 
     def new_repository(self):
         self.repository_name = input('Please enter a name for your repo:')
