@@ -11,7 +11,7 @@ class Git:
         self.directory = ""
         self.repository_name = ""
         self.driver = None
-        self.url = "https://github.com/Alimohamad21/"
+        self.url = ""
 
     def log_into_git(self):
         self.driver = webdriver.Edge('/Users/Mohamed/Downloads/msedgedriver')
@@ -49,7 +49,7 @@ class Git:
                 pass
 
     def cmd_upload_to_rep(self):
-        self.url = self.url+format(self.repository_name)+'.git'
+        self.url = self.url + format(self.repository_name) + '.git'
         cmd2 = 'git remote add origin {}'.format(self.url)
         os.chdir(self.directory)
         os.system(
@@ -64,6 +64,10 @@ class Git:
                 commit_name))
         self.log_into_git()
         self.driver.maximize_window()
+        self.driver.get('https://github.com/Alimohamad21?tab=repositories')
+        self.url = self.driver.find_element_by_xpath(
+            '/html/body/div[4]/main/div[2]/div/div[2]/div[2]/div/div[2]/ul/li[1]/div[1]/div[1]/h3/a').get_attribute(
+            'href')
         self.driver.get(self.url)
 
     def new_repository(self):
