@@ -68,8 +68,7 @@ class Git:
         while True:
             try:
                 self.driver.find_element_by_xpath(
-                    '/html/body/div[4]/main/div[2]/div/div[2]/div[2]/div/div[2]/ul/li[1]/div[1]/div[1]/h3/a').get_attribute(
-                    'href').click()
+                    '/html/body/div[4]/main/div[2]/div/div[2]/div[2]/div/div[2]/ul/li[1]/div[1]/div[1]/h3/a').click()
                 break
             except:
                 pass
