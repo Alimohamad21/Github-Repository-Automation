@@ -61,7 +61,7 @@ class Git:
         commit_name = input('Please enter a short description for your commit:')
         os.chdir(self.directory)
         os.system(
-            'cmd /c "git add .&git commit -m "{}"&git push origin main"'.format(
+            'cmd /c "git add .&git commit -m "{}"&git push -f origin main"'.format(
                 commit_name))
         self.log_into_git()
         self.driver.maximize_window()
