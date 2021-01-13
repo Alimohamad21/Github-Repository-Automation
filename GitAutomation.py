@@ -54,14 +54,14 @@ class Git:
         cmd2 = 'git remote add origin {}'.format(self.url)
         os.chdir(self.directory)
         os.system(
-            'cmd /c "git init&git add .&git commit -m "First commit"&git branch -M main&{}&git push -f origin main"'.format(
+            'cmd /c "git init&git add .&git commit -m "First commit"&git branch -M main&{}&git push origin main"'.format(
                 cmd2))
 
     def update_existing_repository(self):
         commit_name = input('Please enter a short description for your commit:')
         os.chdir(self.directory)
         os.system(
-            'cmd /c "git add .&git commit -m "{}"&git push -f origin main"'.format(
+            'cmd /c "git add .&git commit -m "{}"&git push origin main"'.format(
                 commit_name))
         self.log_into_git()
         self.driver.maximize_window()
