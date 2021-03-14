@@ -22,8 +22,8 @@ class Git:
         while True:
             try:
                 self.driver.find_element_by_xpath('/html/body/div[3]/main/div/div[4]/form/input[2]').send_keys(username)
-                self.driver.find_element_by_xpath('/html/body/div[3]/main/div/div[4]/form/input[3]').send_keys(password)
-                self.driver.find_element_by_xpath('/html/body/div[3]/main/div/div[4]/form/input[14]').click()
+                self.driver.find_element_by_xpath('/html/body/div[3]/main/div/div[4]/form/div/input[1]').send_keys(password)
+                self.driver.find_element_by_xpath('/html/body/div[3]/main/div/div[4]/form/div/input[12]').click()
                 break
             except:
                 pass
