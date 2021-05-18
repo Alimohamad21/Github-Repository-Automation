@@ -22,7 +22,8 @@ class Git:
         while True:
             try:
                 self.driver.find_element_by_xpath('/html/body/div[3]/main/div/div[4]/form/input[2]').send_keys(username)
-                self.driver.find_element_by_xpath('/html/body/div[3]/main/div/div[4]/form/div/input[1]').send_keys(password)
+                self.driver.find_element_by_xpath('/html/body/div[3]/main/div/div[4]/form/div/input[1]').send_keys(
+                    password)
                 self.driver.find_element_by_xpath('/html/body/div[3]/main/div/div[4]/form/div/input[12]').click()
                 break
             except:
@@ -53,16 +54,16 @@ class Git:
         self.url = self.url + format(self.repository_name) + '.git'
         cmd2 = 'git remote add origin {}'.format(self.url)
         os.chdir(self.directory)
+        commit = '{commited automatically using https://github.com/Alimohamad21/Github-Repository-Automation}'
         os.system(
-            'cmd /c "git init&git add .&git commit -m "First commit"&git branch -M main&{}&git push -f origin main"'.format(
-                cmd2))
+            f'cmd /c "git init&git add .&git commit -m "{commit}"&git branch -M main&{cmd2}&git push -f origin main"')
 
     def update_existing_repository(self):
         commit_name = input('Please enter a short description for your commit:')
+        commit_name += ' {commited automatically using https://github.com/Alimohamad21/Github-Repository-Automation}'
         os.chdir(self.directory)
         os.system(
-            'cmd /c "git pull origin main&git add .&git commit -m "{}"&git push -f origin main"'.format(
-                commit_name))
+            f'cmd /c "git pull origin main&git add .&git commit -m "{commit_name}"&git push -f origin main"')
         self.log_into_git()
         self.driver.maximize_window()
         self.driver.get('https://github.com/Alimohamad21?tab=repositories')
@@ -82,6 +83,8 @@ class Git:
         self.cmd_upload_to_rep()
         self.driver.maximize_window()
         self.driver.get(self.url)
+        self.driver.find_element_by_xpath(
+            '/html/body/ytd-app/div/tp-yt-app-drawer/div[2]/div/div[2]/div[2]/ytd-guide-renderer/div[1]/ytd-guide-section-renderer[1]/div/ytd-guide-entry-renderer[3]/a/tp-yt-paper-item/yt-formatted-string')
 
 
 choice = input('1-New Repository\n2-Existing Repository\nPlease choose an option from the above:')
